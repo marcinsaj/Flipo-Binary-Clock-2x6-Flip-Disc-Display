@@ -1,35 +1,9 @@
-/*----------------------------------------------------------------------------------*
- * A simple example of controlling one 1x3 flip-disc display                        *
- * Example connection diagram: https://bit.ly/1x1x3FDD                              *
- *                                                                                  *
- * The MIT License                                                                  *
- * Marcin Saj 15 Jan 2023                                                           *
- * https://github.com/marcinsaj/FlipDisc                                            *
- *                                                                                  *
- * A dedicated controller or any Arduino board with a power module is required      *
- * to operate the display:                                                          *
- * 1. Dedicated controller - https://bit.ly/AC1-FD                                  *
- * 2. Or any Arduino board + Pulse Shaper Power Supply - https://bit.ly/PSPS-FD     *
- *----------------------------------------------------------------------------------*/
-
-/* The library <FlipDisc.h> uses SPI to control flip-disc displays. 
-The user must remember to connect the display inputs marked: 
-- DIN - data in - to the MOSI (SPI) output of the microcontroller, 
-- CLK - clock - input of the display to the SCK (SPI).
-The displays are connected in series through the built-in connectors, 
-only the first display from the left is connected to the Arduino or a dedicated controller.
- 
-It is very important to connect and declare EN, CH, PL pins. 
-The declaration of DIN (MOSI) and CLK (SCK) is not necessary, 
-because the SPI.h library handles the SPI hardware pins. */
-
-#include <FlipDisc.h>   // https://github.com/marcinsaj/FlipDisc 
-
-/*
-#define EN_PIN  'Set your pin'  // Start & End SPI transfer data
-#define CH_PIN  'Set your pin'  // Charging PSPS module - turn ON/OFF
-#define PL_PIN  'Set your pin'  // Release the current pulse - turn ON/OFF 
-*/
+#include <FlipDisc.h>         // https://github.com/marcinsaj/FlipDisc
+#include <RTC_RX8025T.h>      // https://github.com/marcinsaj/RTC_RX8025T
+#include <TimeLib.h>          // https://github.com/PaulStoffregen/Time
+#include <Wire.h>             // https://arduino.cc/en/Reference/Wire (included with Arduino IDE)
+#include <OneButton.h>        // https://github.com/mathertel/OneButton
+#include <EEPROM.h>           // https://www.arduino.cc/en/Reference/EEPROM
 
 
 // 1. Pin declaration for a dedicated controller
@@ -39,8 +13,17 @@ because the SPI.h library handles the SPI hardware pins. */
 
 
 // Buttons - counting from the top
-#define B1_PIN 10  // Top button
-#define B2_PIN 9   // Middle button
+#define B1_PIN A3  // Top button
+#define B2_PIN A2   // Middle button
+
+// RTC
+#define RTC_PIN 2 // RTC interrupt input
+
+
+// Declare structure that allows convenient access to the time elements:
+// - tm.Hour - hours
+// - tm.Minute - minutes
+tmElements_t tm;
 
 // Initialize a new OneButton instance for a buttons 
 // BUTTON_PIN - Input pin for the button
@@ -59,6 +42,13 @@ bool longPressButton2Status = false;
 // RTC interrupt flag
 volatile bool interruptRtcStatus = false;
 
+
+// The flag specifies whether the currently available time 
+// in the tm structure is up to date. If the time is current, 
+// there is no need to read the time from the RTC again
+bool currentTimeStatus = false;
+
+bool timeToDisplayTime = false;
 
 uint8_t binaryTopRow[6];
 uint8_t binaryBottomRow[6];
@@ -111,7 +101,31 @@ void loop()
 {
   WatchButtons();
 
+  if(interruptRtcStatus == true)
+  {
+    interruptRtcStatus = false;
+    timeToDisplayTime = ~timeToDisplayTime;
 
+    if(timeToDisplayTime == true) Flip.All();
+    if(timeToDisplayTime == false) Flip.Clear();
+
+  }
+
+  if(shortPressButton1Status == true)
+  {
+
+    ClearPressButtonFlags();
+    Flip.All();
+
+  }
+
+  if(shortPressButton2Status == true)
+  {
+    ClearPressButtonFlags();
+    Flip.Clear();
+  }  
+
+ /*
   delay(1000);
 
   Flip.All();
@@ -119,7 +133,7 @@ void loop()
 
   Flip.Clear();
   delay(1000);
- /* 
+
   for(int i = 1; i <= 12; i++)
   {
     Flip.Disc_2x6(1,i,1);
@@ -131,7 +145,7 @@ void loop()
     Flip.Disc_2x6(1,i,0);
     delay(1000);
   }
-*/
+
   for(int i = 0; i < 60; i++)
   {
     DecToBinary(i, binaryBottomRow);
@@ -143,7 +157,7 @@ void loop()
     delay(1000);
 
   }
-
+*/
 }
 
 
