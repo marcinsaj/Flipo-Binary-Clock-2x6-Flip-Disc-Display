@@ -104,7 +104,7 @@ void loop()
   if(interruptRtcStatus == true)
   {
     interruptRtcStatus = false;
-    timeToDisplayTime = ~timeToDisplayTime;
+    timeToDisplayTime = !timeToDisplayTime;
 
     if(timeToDisplayTime == true) Flip.All();
     if(timeToDisplayTime == false) Flip.Clear();
