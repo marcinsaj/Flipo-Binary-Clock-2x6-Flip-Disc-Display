@@ -266,20 +266,21 @@ void SetTime(void)
       {
         DisplayData(TOP_ROW, CLR_ALL);
         DisplayData(BOT_ROW, CLR_ALL);
-        delay(200);
+        delay(300);
 
         for(int i = 7; i < 12; i++)
         {
           Flip.Disc_2x6(1, i,  1);
-          delay(100);
+          delay(200);
         }
 
         for(int i = 7; i < 12; i++)
         {
           Flip.Disc_2x6(1, i,  0);
-          delay(100);
+          delay(200);
         }
 
+        delay(100);
         time_settings_level = 4;
       }
 
@@ -292,20 +293,21 @@ void SetTime(void)
       {
         DisplayData(TOP_ROW, CLR_ALL);
         DisplayData(BOT_ROW, CLR_ALL);
-        delay(200);
+        delay(300);
 
         for(int i = 1; i <= 6; i++)
         {
           Flip.Disc_2x6(1, i,  1);
-          delay(100);
+          delay(200);
         }
 
         for(int i = 1; i <= 6; i++)
         {
           Flip.Disc_2x6(1, i,  0);
-          delay(100);
+          delay(200);
         }
-
+        
+        delay(100);
         time_settings_level = 6;
       }      
 
