@@ -9,6 +9,7 @@
 - accurate real-time clock (RTC) on board
 - the RTC clock memory is backed up by a supercapacitor, so the clock does not require an additional battery in the event of a power failure or turn off
 - ISP programming connector for intermediate users - more about it below in the description
+- clock dimensions: 
 - the clock requires a 12V 1.5A power supply
 - [2x6 flip-disc display repository](https://github.com/marcinsaj/Flipo-2x6-Flip-Disc-Display)
 - Project website - in development
