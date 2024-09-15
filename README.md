@@ -12,8 +12,7 @@
 - the clock requires a 12V 1.5A power supply
 
 > [!WARNING]
-> For intermediate users only!
-
+> For intermediate users only! 
 > The heart of the clock is the ATmega 328 microcontroller (default 16 MHz external crystal). The [clock code](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/tree/main/examples) was written in the Arduino IDE and uses [MiniCore](https://github.com/MCUdude/MiniCore). On the clock board there is an ISP connector for programming. If you use a programmer that allows you to power the microcontroller to be programmed, all you have to do is turn off the clock during programming. If the programmer (e.g. Atmel-ICE ISP) requires an additional power supply for the microcontroller to be programmed, the clock controller board should be disconnected from the flip-disc display board during programming - this is very important because the flip-disc display may be damaged during programming.
 
 
