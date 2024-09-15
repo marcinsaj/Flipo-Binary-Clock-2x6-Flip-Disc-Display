@@ -5,7 +5,7 @@
 ## Specification
 - fully functional clock, just need to connect the power supply
 - two buttons for time settings
-- toggle power switch (on/off)
+- slide power switch (on/off)
 - accurate real-time clock (RTC) on board
 - the RTC clock memory is backed up by a supercapacitor, so the clock does not require an additional battery in the event of a power failure or turn off
 - clock dimensions: 116 x 66 x 53mm (4.6" x 2.6" x 2.1")
