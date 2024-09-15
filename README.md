@@ -12,7 +12,7 @@
 - the clock requires a 12V, 1.5A power supply, 5.5mm plug diameter, 2.1mm center pin positive +
 - ISP programming connector - only for intermediate users - [read more here](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/datasheet/how-to-update-code.md)
 
-  ## Datasheet
+## Datasheet
   - [project website](https://flipo.io/project/flip-disc-binary-clock/)
   - [2x6 flip-disc display repository](https://github.com/marcinsaj/Flipo-2x6-Flip-Disc-Display)
   - clock schematic <sup>to do</sup>
