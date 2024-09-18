@@ -19,6 +19,10 @@
   - clock casing design for 3d printing <sup>to do</sup>
 ---
 
+## How to read binary time
+![How to read binary time](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/extras/How-to-Read-2x6-Flip-disc-Binary-Clock-Time.gif)
+
+
 Binary Clock Controller PCB:
 ![Binary Clock Controller PCB](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/extras/top-binary-clock-2x6-flip-disc-display-pcb.png)
 ![Binary Clock Controller PCB](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/extras/bottom-binary-clock-2x6-flip-disc-display-pcb.png)
