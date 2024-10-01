@@ -15,7 +15,7 @@
 ## Datasheet
   - [project website](https://flipo.io/project/flip-disc-binary-clock/)
   - [2x6 flip-disc display repository](https://github.com/marcinsaj/Flipo-2x6-Flip-Disc-Display)
-  - clock schematic <sup>to do</sup>
+  - [clock schematic](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/raw/datasheet/Flip-disc-2x6-Binary-Clock-Schematic.pdf)
   - clock casing design for 3d printing <sup>to do</sup>
 ---
 
