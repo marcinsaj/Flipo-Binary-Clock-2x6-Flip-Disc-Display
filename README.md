@@ -17,7 +17,11 @@
   - [2x6 flip-disc display repository](https://github.com/marcinsaj/Flipo-2x6-Flip-Disc-Display)
   - [clock schematic](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/raw/main/datasheet/Flip-disc-2x6-Binary-Clock-Schematic.pdf)
   - clock casing design for laser cutting <sup>to do</sup>
-  - clock casing design for 3d printing <sup>to do</sup>
+  - clock casing design for 3d printing: 
+    - [casing #1](https://www.printables.com/model/1025287-no1-3d-printed-casing-for-flip-disc-binary-clock)
+    - [casing #2](https://www.printables.com/model/1025303-no2-3d-printed-casing-for-flip-disc-binary-clock)
+    - [casing #3](https://www.printables.com/model/1027025-no3-3d-printed-casing-for-flip-disc-binary-clock)
+    
 ---
 
 ## How to read binary time
