@@ -2,10 +2,9 @@
  * Flip-disc 2x6 Binary Clock by Marcin Saj https://flipo.io                                     *
  * https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display                         *
  *                                                                                               *
- * Final Flip-disc Clock 4x7-Segment                                                             *
  * Setting Options:                                                                              *
- * - hour format 12/24                                                                           *
- * - time, hours & minutes                                                                       *
+ * - hour format: 12/24                                                                          *
+ * - time: hours & minutes                                                                       *
  *                                                                                               *
  * Attention!!! - Firmware update only for intermediate users!                                   *
  * The heart of the clock is the ATmega 328 microcontroller (default 16 MHz external crystal)    *
@@ -42,6 +41,10 @@
 
 // RTC
 #define RTC_PIN 2 // RTC interrupt input
+
+// LDBG LED
+// Used to indicate potential hardware issues during the boot process
+#define LDBG_PIN  6
 
 // Display rows
 static const uint8_t TOP_ROW = 2;
@@ -103,6 +106,7 @@ void setup()
   Flip.Init(D2X6);
 
   pinMode(RTC_PIN, INPUT_PULLUP);
+  pinMode(LDBG_PIN, OUTPUT);
 
   // RTC RX8025T initialization
   RTC_RX8025T.init();
@@ -126,7 +130,15 @@ void setup()
   button1.attachLongPressStart(LongPressButton1);
   // button2.attachLongPressStart(LongPressButton2);
 
-  DelayTime(3000);
+  DelayTime(1000);
+  Flip.All();
+  digitalWrite(LDBG, HIGH);
+
+  DelayTime(1000);
+  Flip.Clear();
+  digitalWrite(LDBG, LOW);
+
+  DelayTime(1000);  
 
   // If the read values ​​are different from expected, set the time format to 12 hours.
   time_hr = EEPROM.read(ee_time_hr_address);
@@ -191,7 +203,7 @@ void DisplayData(uint8_t row, uint8_t data)
     DecToBinary(data, binaryBotRowAR);
     for(int i = 1; i <= 6 ; i++) 
     {
-      Flip.Disc_2x6(1, i, binaryBotRowAR[i-1]);
+      Flip.Disc_2x6(1, i, binaryBotRowAR[6-i]);
       DelayTime(waitTime);
     }
   }
@@ -201,7 +213,7 @@ void DisplayData(uint8_t row, uint8_t data)
     DecToBinary(data, binaryTopRowAR);
     for(int i = 1; i <= 6; i++) 
     {
-      Flip.Disc_2x6(1, i+6, binaryTopRowAR[i-1]);
+      Flip.Disc_2x6(1, i+6, binaryTopRowAR[6-i]);
       DelayTime(waitTime);
     }
   }
