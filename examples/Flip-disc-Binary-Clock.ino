@@ -132,11 +132,11 @@ void setup()
 
   DelayTime(1000);
   Flip.All();
-  digitalWrite(LDBG, HIGH);
+  digitalWrite(LDBG_PIN, HIGH);
 
   DelayTime(1000);
   Flip.Clear();
-  digitalWrite(LDBG, LOW);
+  digitalWrite(LDBG_PIN, LOW);
 
   DelayTime(1000);  
 
