@@ -203,7 +203,7 @@ void DisplayData(uint8_t row, uint8_t data)
     DecToBinary(data, binaryBotRowAR);
     for(int i = 1; i <= 6 ; i++) 
     {
-      Flip.Disc_2x6(1, i, binaryBotRowAR[6-i]);
+      Flip.Disc_2x6(1, i, binaryBotRowAR[i-1]);
       DelayTime(waitTime);
     }
   }
@@ -213,7 +213,7 @@ void DisplayData(uint8_t row, uint8_t data)
     DecToBinary(data, binaryTopRowAR);
     for(int i = 1; i <= 6; i++) 
     {
-      Flip.Disc_2x6(1, i+6, binaryTopRowAR[6-i]);
+      Flip.Disc_2x6(1, i+6, binaryTopRowAR[i-1]);
       DelayTime(waitTime);
     }
   }
