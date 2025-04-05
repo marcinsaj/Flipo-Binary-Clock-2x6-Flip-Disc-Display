@@ -26,6 +26,7 @@
 
 ## How to read binary time
 - [download instructions](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/raw/main/datasheet/How-to-Read-2x6-Flip-disc-Binary-Clock.pdf)
+  
 ![How to read binary time](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/extras/How-to-Read-2x6-Flip-disc-Binary-Clock-Time.gif)
 
 ![#1 Clock Casing](https://github.com/marcinsaj/Flipo-Binary-Clock-2x6-Flip-Disc-Display/blob/main/extras/01-3D-Printed-Casing-for-Flip-disc-Binary-Clock.webp)
